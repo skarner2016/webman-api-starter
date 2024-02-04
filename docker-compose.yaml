@@ -1,0 +1,19 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai # 你的时区
+    ports:
+      - "8787:8787"
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - ./:/var/www/html
+#    command: ["/usr/local/bin/php", "/var/www/webman/start.php", "start"]
