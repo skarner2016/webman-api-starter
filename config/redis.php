@@ -1,11 +1,9 @@
 <?php
 /**
  * This file is part of webman.
- *
  * Licensed under The MIT License
  * For full copyright and license information, please see the MIT-LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
- *
  * @author    walkor<walkor@workerman.net>
  * @copyright walkor<walkor@workerman.net>
  * @link      http://www.workerman.net/
@@ -14,9 +12,9 @@
 
 return [
     'default' => [
-        'host' => '127.0.0.1',
-        'password' => null,
-        'port' => 6379,
+        'host'     => getenv('REDIS_HOST'),
+        'password' => getenv('REDIS_PASS'),
+        'port'     => getenv('REDIS_PORT'),
         'database' => 0,
     ],
 ];

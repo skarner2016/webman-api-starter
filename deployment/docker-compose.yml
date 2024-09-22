@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  joyhub-community:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: joyhub-community
+    ports:
+      - 8787:8787
+    volumes:
+      - ../:/var/www
+    stdin_open: true
+    tty: true
+    working_dir: /var/www
+    restart: always
+    command: ["/usr/local/bin/php", "/var/www/start.php", "start"]
+    networks:
+      - local_host
+
+networks:
+  local_host:
+    driver: bridge
