@@ -1,5 +1,8 @@
 # webman-api-starter
 
+#### middleware
+- app\middleware\Lang::class 多语言切换
+
 #### 插件/组件
 - webman/console 命令行
   ```
@@ -23,3 +26,7 @@
   composer require vlucas/phpdotenv
   ```
   
+- symfony/translation 多语言
+  ```
+  composer require symfony/translation
+  ```
