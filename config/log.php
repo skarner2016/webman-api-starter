@@ -18,9 +18,30 @@ return [
             [
                 'class' => Monolog\Handler\RotatingFileHandler::class,
                 'constructor' => [
-                    runtime_path() . '/logs/webman.log',
-                    7, //$maxFiles
+                    runtime_path() . '/logs/app.log',
+                    getenv('LOG_MAX_FILES'), //$maxFiles
                     Monolog\Logger::DEBUG,
+                    true,
+                    0755
+                ],
+                'formatter' => [
+                    'class' => Monolog\Formatter\LineFormatter::class,
+                    'constructor' => [null, 'Y-m-d H:i:s', true],
+                ],
+            ]
+        ],
+    ],
+
+    'test' => [
+        'handlers' => [
+            [
+                'class' => Monolog\Handler\RotatingFileHandler::class,
+                'constructor' => [
+                    runtime_path() . '/logs/test.log',
+                    getenv('LOG_MAX_FILES'), //$maxFiles
+                    Monolog\Logger::DEBUG,
+                    true,
+                    0755
                 ],
                 'formatter' => [
                     'class' => Monolog\Formatter\LineFormatter::class,
